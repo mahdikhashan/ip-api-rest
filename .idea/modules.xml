@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.example.ip-api-rest.iml" filepath="$PROJECT_DIR$/.idea/modules/com.example.ip-api-rest.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/ip-api-rest.iml" filepath="$PROJECT_DIR$/.idea/ip-api-rest.iml" />
     </modules>
   </component>
