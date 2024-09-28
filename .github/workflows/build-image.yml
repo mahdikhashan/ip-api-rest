@@ -1,4 +1,4 @@
-name: IP API Docker CI
+name: Build Image
 
 on:
   push:
