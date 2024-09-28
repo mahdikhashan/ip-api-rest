@@ -10,12 +10,18 @@ jobs:
   build-app:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: gradle/actions/setup-gradle@v3
-      - name: Build APP with Gradle
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: Build App with Gradle
         uses: ./build.sh
 
   build-image:
+    needs:
+      - build-app
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
