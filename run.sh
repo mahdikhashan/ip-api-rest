@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # build the ktor application as a fatJar
 sh ./build.sh
 
