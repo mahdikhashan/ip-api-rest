@@ -1,5 +1,7 @@
 package com.example.routes
 
+import com.example.models.IPDTO
+import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
 import io.ktor.server.response.*
@@ -7,12 +9,14 @@ import io.ktor.server.routing.*
 
 fun Route.getIPRoute() {
   get("/") {
-    val remoteHost = call.request.local.remoteHost
-    val serverHost = call.request.local.serverHost
-    val originRemoteHost = call.request.origin.remoteHost
-    val originServerHost = call.request.origin.serverHost
-    call.respondText("remoteHost: $remoteHost, originRemoteHost: $originRemoteHost\n" +
-        "serverHost: $serverHost, originServerHost: $originServerHost"
-    )
+    // https://stackoverflow.com/questions/67054276/how-to-get-client-ip-with-ktor
+    val ip = call.request.origin.remoteAddress
+    val ipResponse = IPDTO(ip)
+
+    if (call.request.queryParameters["format"] == "json") {
+      call.respond(ipResponse)
+    }
+
+    call.respondText(ip, ContentType.Any, HttpStatusCode(200, "Successful"))
   }
 }

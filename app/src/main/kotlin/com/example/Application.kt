@@ -10,4 +10,5 @@ fun Application.module() {
   configureHTTP()
   configureMonitoring()
   configureRouting()
+  configureResponse()
 }
