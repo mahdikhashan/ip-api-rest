@@ -1,3 +1,3 @@
-# IP API Rest
+# IP API RESTful
 
 TODO
